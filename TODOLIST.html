@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> TO DO LIST </title>
+    <style>
+            .parent{
+                height: 500px;
+                width: 500px;
+                border: 2px solid black;
+                background: linear-gradient(purple, red, yellow);
+                text-align: center;
+                align-items: center;
+                margin: 10%;
+                display: flex;
+                justify-content: center;
+                border-radius: 2px solid;
+                flex-direction: column;
+                gap: 1.9%;
+                position: relative;
+
+
+            }
+
+            h1{
+                color: white;
+            }
+
+            button{
+
+                width: 20%;
+                border: 1px solid black;
+                
+            
+            }
+
+            button:hover {
+                background-color: brown;
+            }
+
+            input{
+                width: 80%;
+                border-radius: 10px;}
+
+                .itemcontainer{
+                    height: 20%;
+                    width: 80%;
+                    border: 2px solid black;
+                    background-color: white;
+                    border-radius: 10px;
+                    position: sticky;
+                    overflow-y: scroll;
+                    
+                }
+                
+
+
+                li{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 5px;
+                    text-transform: capitalize;
+                }
+                
+                 /* ::-webkit-scrollbar{
+
+                    border-radius: 10px;
+                    /* background-color: rgba(24, 18, 18, 0.441);  */
+                    /* background: red;
+                    height: 10%; */
+
+                }
+
+    </style>
+</head>
+<body>
+    <div class="parent">
+    <h1> TO DO LIST</h1>
+    <input id="textinput" class="textinput" type="text">
+     <button onclick="insert()">Insert</button>
+     <button onclick="location.reload()">Reset</button>   <!-- location.reload()  js property for reload the page  -->
+    <div class="itemcontainer"></div>
+  
+    </div>
+    <script>
+
+
+             let input = document.querySelector(".textinput");
+
+            function insert(){
+
+
+                if(input.value == ""){
+                alert("Enter Your Task")
+
+                }
+                else{
+
+                    let items = document.querySelector(".itemcontainer")
+
+                    let container = document.createElement("li");
+                    container.innerHTML =`${input.value} <button>Delete</button>`;
+                    items.append(container);
+                    input.value ="";
+
+
+                    container.querySelector("button").addEventListener("click", remove);
+                    function remove(){
+                        container.remove();
+                    }
+
+
+
+
+
+
+
+                }
+
+
+
+            }
+           
+
+
+    </script>
+</body>
+</html>
